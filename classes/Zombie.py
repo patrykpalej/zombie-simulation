@@ -8,6 +8,6 @@ class Zombie:
         self.velocity = zombies_params["velocity"]
         self.r = zombies_params["r"]
 
-        self.nose = zombies_params["smell"]
-        self.zombieness = zombies_params["eye"]
+        self.nose = zombies_params["nose"]
+        self.zombieness = zombies_params["zombieness"]
         self.poison = zombies_params["poison"]
