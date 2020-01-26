@@ -10,9 +10,10 @@ def init_map(map_name):
     ...
     """
 
-    img = Image.open("../../data/img/{}".format(map_name)).convert("RGB")
+    img = Image.open("data/img/{}".format(map_name)).convert("RGB")
     arr3d = np.array(img)
     arr2d = arr3d[:, :, 0]
 
     arr2d[arr2d == 255] = 1
+
     return arr2d
