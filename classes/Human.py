@@ -1,15 +1,15 @@
 class Human:
-    def __init__(self, humans_params):
-        self.x = humans_params["x"]
-        self.y = humans_params["y"]
+    def __init__(self, human_params):
+        self.x = human_params["x"]
+        self.y = human_params["y"]
 
-        self.color = humans_params["color"]
+        self.color = human_params["color"]
 
-        self.velocity = humans_params["velocity"]
-        self.r = humans_params["r"]
+        self.velocity = human_params["velocity"]
+        self.r = human_params["r"]
 
-        self.smell = humans_params["smell"]
-        self.eye = humans_params["eye"]
-        self.resist = humans_params["resist"]
-        self.strength = humans_params["strength"]
-        self.stamina = humans_params["stamina"]
+        self.smell = human_params["smell"]
+        self.eye = human_params["eye"]
+        self.resist = human_params["resist"]
+        self.strength = human_params["strength"]
+        self.stamina = human_params["stamina"]
