@@ -8,4 +8,4 @@ from functions.runSimulation import run_simulation
 
 humans, zombies, map_2d = init_all()
 
-run_simulation(humans, zombies, map_2d)
+simulation_log = run_simulation(humans, zombies, map_2d)
