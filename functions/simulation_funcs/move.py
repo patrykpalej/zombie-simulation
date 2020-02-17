@@ -4,4 +4,8 @@ def move(humans, zombies):
     changes position (and only position) of the character.
     """
 
-    return humans, zombies
+    for human in humans:
+        human.change_position(humans, zombies)
+
+    for zombie in zombies:
+        zombie.change_position(humans)
