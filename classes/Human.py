@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Human:
     def __init__(self, human_params):
         self.x = human_params["x"]
@@ -13,3 +16,11 @@ class Human:
         self.resist = human_params["resist"]
         self.strength = human_params["strength"]
         self.stamina = human_params["stamina"]
+
+    def change_position(self, humans, zombies):
+        """
+        Changes (x, y) position of a human basing on distribution of humans
+        and zombies on the map
+        """
+        self.x += np.random.normal(0, 10)
+        self.y += np.random.normal(0, 10)
