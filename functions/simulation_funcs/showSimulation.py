@@ -25,6 +25,6 @@ def show_simulation(map_2d, humans, zombies, if_block, t):
 
     plt.figure("Simulation")
     plt.imshow(showmap, cmap='nipy_spectral')
-    plt.title(str(t))
+    plt.title("Time step: " + str(t), fontsize=16)
 
     plt.show(block=if_block)

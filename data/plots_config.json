@@ -1,0 +1,7 @@
+{"Simulation": [8, 35, 1500, 785], 
+ "Humans statistics": [-1920, 140, 950, 1010], 
+ "Zombies statistics": [-960, 140, 950, 1010],
+ "human_attribs": ["x", "y", "velocity", "stamina", "smell", "eye", "strength", "resist"],
+ "human_titles": ["X coordinate", "Y coordinate", "Velocity", "Stamina", "Smell", "Eye", "Strength", "Resistance"],
+ "zombie_attribs": ["x", "y", "velocity", "nose", "zombieness", "poison"],
+ "zombie_titles": ["X coordinate", "Y coordinate", "Velocity", "Nose", "Zombieness", "Poison"]}
