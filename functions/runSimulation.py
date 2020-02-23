@@ -17,7 +17,7 @@ def run_simulation(humans, zombies, map_2d):
     """
 
     # 1. Plots configuration
-    with open("plots_config.json") as handle:
+    with open("data/plots_config.json") as handle:
         plots_config = json.load(handle)
 
     labels = list(plots_config.keys())
