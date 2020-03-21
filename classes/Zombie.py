@@ -12,10 +12,10 @@ class Zombie:
         self.zombieness = zombies_params["zombieness"]
         self.poison = zombies_params["poison"]
 
-    def change_position(self, humans):
+    def choose_new_position(self, humans):
         """
-        Changes (x, y) position of a zombie basing on distribution of humans
-        on the map
+        Chooses new (x, y) position of a single zombie basing on distribution
+        of humans on the map. Returns the new position
         """
         # 1. Save information about humans distribution and smell
         x_h = []
@@ -44,5 +44,7 @@ class Zombie:
 
         # - - - - - - -
         # - - - - - - -
-        self.x += 1
-        self.y += 1
+        new_x = self.x + 1
+        new_y = self.y + 1
+
+        return [new_x, new_y]

@@ -17,10 +17,13 @@ class Human:
         self.strength = human_params["strength"]
         self.stamina = human_params["stamina"]
 
-    def change_position(self, humans, zombies):
+    def choose_new_position(self, humans, zombies):
         """
-        Changes (x, y) position of a human basing on distribution of humans
-        and zombies on the map
+        Chooses new (x, y) position of a single human basing on distribution
+        of humans and zombies on the map. Returns the new position
         """
-        self.x += np.random.normal(0, 10)
-        self.y += np.random.normal(0, 10)
+
+        new_x = self.x + np.random.normal(0, 10)
+        new_y = self.y + np.random.normal(0, 10)
+
+        return [new_x, new_y]
