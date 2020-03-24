@@ -1,6 +1,6 @@
 {"Simulation": [8, 35, 1500, 785], 
- "Humans statistics": [1940, -20, 950, 810], 
- "Zombies statistics": [2900, -20, 950, 810],
+ "Humans statistics": [1930, 0, 950, 910], 
+ "Zombies statistics": [2890, 0, 950, 910],
 
  "human_attribs": ["x", "y", "velocity", "stamina", "smell", "eye", "strength", "resist"],
  "human_titles": ["X coordinate", "Y coordinate", "Velocity", "Stamina", "Smell", "Eye", "Strength", "Resistance"],
