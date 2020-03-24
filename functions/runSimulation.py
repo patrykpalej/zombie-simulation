@@ -55,7 +55,7 @@ def run_simulation(humans, zombies, map_2d):
 
         simulation_log = update_log(simulation_log, humans, zombies)
 
-        if t >= 15 or len(humans) < 1 or len(zombies) < 1:
+        if t >= 55 or len(humans) < 1 or len(zombies) < 1:
             end_sim = 1
             show_simulation(map_2d, humans, zombies, True, t)
         t += 1
