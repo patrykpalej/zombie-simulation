@@ -31,6 +31,7 @@ def init_characters():
         human_params["resist"] = humans_dict["resist"][h]
         human_params["strength"] = humans_dict["strength"][h]
         human_params["stamina"] = humans_dict["stamina"][h]
+        human_params["strategy"] = humans_dict["strategy"][h]
 
         humans.append(Human(human_params))
 
