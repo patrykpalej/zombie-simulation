@@ -42,9 +42,8 @@ def run_simulation(humans, zombies, map_2d):
     t = 1
     end_sim = 0
     simulation_log = pd.DataFrame()  # for now it's a df
-
     while not end_sim:
-        move(humans, zombies)
+        move(humans, zombies, map_2d)
         action(humans, zombies)
 
         show_simulation(map_2d, humans, zombies, False, t)
@@ -55,10 +54,10 @@ def run_simulation(humans, zombies, map_2d):
 
         simulation_log = update_log(simulation_log, humans, zombies)
 
-        if t >= 15 or len(humans) < 1 or len(zombies) < 1:
+        if t >= 30 or len(humans) < 1 or len(zombies) < 1:
             end_sim = 1
             show_simulation(map_2d, humans, zombies, True, t)
         t += 1
-        plt.pause(0.0001)
+        plt.pause(0.02)
 
     return simulation_log

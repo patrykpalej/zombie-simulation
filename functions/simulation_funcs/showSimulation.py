@@ -21,7 +21,7 @@ def show_simulation(map_2d, humans, zombies, if_block, t):
         for x in range(-radius, radius + 1):
             for y in range(-radius, radius + 1):
                 if round(np.sqrt(x**2 + y**2)) <= z.r:
-                    showmap[round(z.y+y), round(z.x+x)] = z.color
+                    showmap[int(round(z.y+y)), int(round(z.x+x))] = z.color
 
     plt.figure("Simulation")
     plt.imshow(showmap, cmap='nipy_spectral')
