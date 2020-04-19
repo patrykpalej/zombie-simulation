@@ -44,7 +44,7 @@ def run_simulation(humans, zombies, map_2d):
     simulation_log = pd.DataFrame()  # for now it's a df
 
     while not end_sim:
-        move(humans, zombies)
+        move(humans, zombies, map_2d)
         action(humans, zombies)
 
         show_simulation(map_2d, humans, zombies, False, t)

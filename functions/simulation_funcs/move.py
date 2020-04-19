@@ -1,4 +1,4 @@
-def move(humans, zombies):
+def move(humans, zombies, map_2d):
     """
     For each character calls a 'choose_new_position' method and - later -
     based on its results changes position (and only position) of the characters
@@ -12,7 +12,7 @@ def move(humans, zombies):
         new_human_positions.append(human.choose_new_position(humans, zombies))
 
     for zombie in zombies:
-        new_zombie_positions.append(zombie.choose_new_position(humans))
+        new_zombie_positions.append(zombie.choose_new_position(humans, map_2d))
 
     # 2. All characters move
     for human, new_position in zip(humans, new_human_positions):
