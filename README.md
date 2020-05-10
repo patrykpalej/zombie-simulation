@@ -6,7 +6,7 @@ In this project I'm going to develop a Python simulation of zombie apocalypse. T
 
 The simulation is held on a map which consists of an island and water around.
 
-![image-20200426214221980](C:\Users\Patryk\Dropbox\Dev\ProjektZombie\data\img\screen.png)
+![image-20200426214221980](\data\img\screen.png)
 
 Each of the zombies follows a simple strategy based on resultant proximity of humans around combined with their individual ability to attract zombies. Humans use more sophisticated strategy which consists of three components: they want to get closer to their companions (especially the strongest ones), they want to avoid zombies (especially the strongest ones) and they want to keep far from the borders of the island where they can be trapped.
 
