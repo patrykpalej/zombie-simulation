@@ -11,9 +11,9 @@
 
 	"smell": [5, 1],
 	"eye": [2, 0.2],
-	"resist": [4, 1.5],
-	"strength": [10, 1],
-	"stamina": [10, 1],
 
-	"strategy": [1, 1, 1, 1]
+	"strength": [10, 1],
+	"stamina": 1,
+
+	"strategy": [1, 1, 1]
 }
