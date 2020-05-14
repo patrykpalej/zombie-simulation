@@ -18,7 +18,7 @@ with open("zombies_config_data.json") as handle:
 
 # 2. Create dictionaries of humans and zombies
 human_features = ["x", "y", "color", "velocity", "r", "smell", "eye",
-                  "resist", "strength", "stamina", "strategy"]
+                  "strength", "stamina", "strategy"]
 humans_params = dict(zip(human_features, [[] for i in human_features]))
 
 for h in range(humans_config["numberOf"]):
@@ -28,7 +28,8 @@ for h in range(humans_config["numberOf"]):
             value = np.random.normal(humans_config[feature][i][0],
                                      humans_config[feature][i][1], 1)[0]
             humans_params[feature].append(value)
-        elif feature == "color" or feature == "strategy":
+        elif feature == "color" or feature == "strategy" or \
+                feature == "stamina" or feature == "r":
             humans_params[feature].append(humans_config[feature])
         else:
             value = np.random.normal(humans_config[feature][0],
@@ -36,8 +37,7 @@ for h in range(humans_config["numberOf"]):
             humans_params[feature].append(value)
 
 
-zombie_features = ["x", "y", "color", "velocity", "r", "nose", "zombieness",
-                   "poison"]
+zombie_features = ["x", "y", "color", "velocity", "r", "nose", "poison"]
 zombies_params = dict(zip(zombie_features, [[] for i in zombie_features]))
 
 for z in range(zombies_config["numberOf"]):
@@ -47,7 +47,7 @@ for z in range(zombies_config["numberOf"]):
             value = np.random.normal(zombies_config[feature][i][0],
                                      zombies_config[feature][i][1], 1)[0]
             zombies_params[feature].append(value)
-        elif feature == "color":
+        elif feature == "color" or feature == "r":
             zombies_params[feature].append(zombies_config[feature])
         else:
             value = np.random.normal(zombies_config[feature][0],

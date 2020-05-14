@@ -7,13 +7,13 @@
 	"color": 0.3,
 
 	"velocity": [3, 0.5],
-	"r": [8, 0],
+	"r": 8,
 
 	"smell": [5, 1],
 	"eye": [2, 0.2],
 
 	"strength": [10, 1],
-	"stamina": 1,
+	"stamina": 5,
 
-	"strategy": [1, 1, 1]
+	"strategy": [1, 0, 2]
 }
