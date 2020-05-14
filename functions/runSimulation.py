@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from functions.simulation_funcs.move import move
 from functions.simulation_funcs.action import action
 from functions.simulation_funcs.updateLog import update_log
+from functions.simulation_funcs.getYlims import get_ylims
 from functions.simulation_funcs.showSimulation import show_simulation
 from functions.simulation_funcs.showStats import show_humans_stats, \
     show_zombies_stats
@@ -36,7 +37,7 @@ def run_simulation(humans, zombies, map_2d):
     human_titles = plots_config["human_titles"]
     zombie_attribs = plots_config["zombie_attribs"]
     zombie_titles = plots_config["zombie_titles"]
-    map_dims = map_2d.shape
+    # map_dims = map_2d.shape
 
     # 2. Simulation
     t = 1
@@ -46,11 +47,12 @@ def run_simulation(humans, zombies, map_2d):
         move(humans, zombies, map_2d)
         action(humans, zombies)
 
+        human_ylims, zombie_ylims = get_ylims(humans, zombies)
         show_simulation(map_2d, humans, zombies, False, t)
         show_humans_stats(humans, False, t, figures[1], labels[1],
-                          human_attribs, human_titles, map_dims)
+                          human_attribs, human_titles, human_ylims)
         show_zombies_stats(zombies, False, t, figures[2], labels[2],
-                           zombie_attribs, zombie_titles, map_dims)
+                           zombie_attribs, zombie_titles, zombie_ylims)
 
         simulation_log = update_log(simulation_log, humans, zombies)
 

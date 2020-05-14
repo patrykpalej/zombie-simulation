@@ -11,6 +11,11 @@ class Human:
         self.velocity = human_params["velocity"]
         self.r = human_params["r"]
 
+        self.battle_points = 0
+        self.a1 = 0
+        self.a2 = 0
+        self.true_velo = 0
+
         self.smell = human_params["smell"]
         self.eye = human_params["eye"]
         self.strength = human_params["strength"]
