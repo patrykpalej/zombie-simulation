@@ -15,7 +15,7 @@ def show_humans_stats(humans, if_block, t, fig, fig_label, attribs, titles,
      for h in humans for attr in attribs]
 
     axes = []
-    for ax in range(8):
+    for ax in range(len(attribs_dict)):
         axes.append(fig.add_subplot(4, 2, ax+1))
         axes[-1].scatter(range(len(humans)), attribs_dict[attribs[ax]])
         axes[-1].set_title(titles[ax])
@@ -46,7 +46,7 @@ def show_zombies_stats(zombies, if_block, t, fig, fig_label, attribs, titles,
      for z in zombies for attr in attribs]
 
     axes = []
-    for ax in range(6):
+    for ax in range(len(attribs_dict)):
         axes.append(fig.add_subplot(3, 2, ax + 1))
         axes[-1].scatter(range(len(zombies)), attribs_dict[attribs[ax]], c='r')
         axes[-1].set_title(titles[ax])
