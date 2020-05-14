@@ -1,8 +1,8 @@
 {"Simulation": [8, 35, 1500, 785], 
- "Humans statistics": [1930, 80, 950, 910], 
- "Zombies statistics": [2890, 80, 950, 910],
+ "Humans statistics": [1930, 80, 1260, 910], 
+ "Zombies statistics": [3200, 80, 640, 910],
 
- "human_attribs": ["x", "y", "velocity", "stamina", "smell", "eye", "strength", "resist"],
- "human_titles": ["X coordinate", "Y coordinate", "Velocity", "Stamina", "Smell", "Eye", "Strength", "Resistance"],
- "zombie_attribs": ["x", "y", "velocity", "nose", "zombieness", "poison"],
- "zombie_titles": ["X coordinate", "Y coordinate", "Velocity", "Nose", "Zombieness", "Poison"]}
+ "human_attribs": ["stamina", "battle_points", "a1", "true_velo", "smell", "eye"],
+ "human_titles": ["Stamina", "Battle Points", "Acceleration coefficient", "True velocity", "Smell", "Eye"],
+ "zombie_attribs": ["battle_points", "velocity", "nose"],
+ "zombie_titles": ["Battle Points", "Velocity", "Nose"]}

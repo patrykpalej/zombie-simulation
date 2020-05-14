@@ -7,12 +7,12 @@ class Zombie:
         self.y = zombies_params["y"]
 
         self.color = zombies_params["color"]
-
         self.velocity = zombies_params["velocity"]
         self.r = zombies_params["r"]
 
+        self.battle_points = 0
+
         self.nose = zombies_params["nose"]
-        self.zombieness = zombies_params["zombieness"]
         self.poison = zombies_params["poison"]
 
     def choose_new_position(self, humans, map_2d):

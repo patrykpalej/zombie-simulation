@@ -8,16 +8,18 @@ class Human:
         self.y = human_params["y"]
 
         self.color = human_params["color"]
-
         self.velocity = human_params["velocity"]
         self.r = human_params["r"]
 
+        self.battle_points = 0
+        self.a1 = 0
+        self.a2 = 0
+        self.true_velo = 0
+
         self.smell = human_params["smell"]
         self.eye = human_params["eye"]
-        self.resist = human_params["resist"]
         self.strength = human_params["strength"]
         self.stamina = human_params["stamina"]
-
         self.strategy = human_params["strategy"]
 
     def choose_new_position(self, humans, zombies):

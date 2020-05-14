@@ -7,9 +7,8 @@
 	"color": 0.85,
 	
 	"velocity": [13, 0.5],
-	"r": [8, 0],
+	"r": 8,
 	
 	"nose": [2, 0.2],
-	"zombieness": [8, 0.5],
-	"poison": [5, 1.5]
+	"poison": [10, 1]
 }

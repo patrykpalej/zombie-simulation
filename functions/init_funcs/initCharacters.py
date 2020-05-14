@@ -28,7 +28,6 @@ def init_characters():
         human_params["r"] = humans_dict["r"][h]
         human_params["smell"] = humans_dict["smell"][h]
         human_params["eye"] = humans_dict["eye"][h]
-        human_params["resist"] = humans_dict["resist"][h]
         human_params["strength"] = humans_dict["strength"][h]
         human_params["stamina"] = humans_dict["stamina"][h]
         human_params["strategy"] = humans_dict["strategy"][h]
@@ -45,7 +44,6 @@ def init_characters():
         zombie_params["velocity"] = zombies_dict["velocity"][z]
         zombie_params["r"] = zombies_dict["r"][z]
         zombie_params["nose"] = zombies_dict["nose"][z]
-        zombie_params["zombieness"] = zombies_dict["zombieness"][z]
         zombie_params["poison"] = zombies_dict["poison"][z]
 
         zombies.append(Zombie(zombie_params))
