@@ -11,6 +11,7 @@ class Zombie:
         self.r = zombies_params["r"]
 
         self.battle_points = 0
+        self.n_infected = 0
 
         self.nose = zombies_params["nose"]
         self.poison = zombies_params["poison"]
