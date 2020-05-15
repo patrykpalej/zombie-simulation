@@ -15,6 +15,7 @@ class Human:
         self.a1 = 0
         self.a2 = 0
         self.true_velo = 0
+        self.n_killed = 0
 
         self.smell = human_params["smell"]
         self.eye = human_params["eye"]
