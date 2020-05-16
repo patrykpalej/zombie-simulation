@@ -11,7 +11,7 @@ def get_ylims(humans, zombies):
     max_eyenose = 1.1*max([h.eye for h in humans] + [z.nose for z in zombies])
 
     # 2. Create lists of max ylims
-    human_ylims = [[0, max(8, max_stamina)], [0, max_battle_points], [0, 1],
+    human_ylims = [[0, max(8, max_stamina)], [0, max_battle_points], [0, 2],
                    [0, max_truevelo], [0, max_smell], [0, max_eyenose]]
 
     zombie_ylims = [[1, max_battle_points], [0, max_truevelo],

@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 from functions.simulation_funcs.move import move
 from functions.simulation_funcs.action import action
+from functions.simulation_funcs.prepare import prepare
 from functions.simulation_funcs.updateLog import update_log
 from functions.simulation_funcs.getYlims import get_ylims
 from functions.simulation_funcs.showSimulation import show_simulation
@@ -44,6 +45,7 @@ def run_simulation(humans, zombies, map_2d):
     end_sim = 0
     simulation_log = pd.DataFrame()  # for now it's a df
     while not end_sim:
+        prepare(humans, zombies)
         move(humans, zombies, map_2d)
         action(humans, zombies)
 
@@ -56,7 +58,7 @@ def run_simulation(humans, zombies, map_2d):
 
         simulation_log = update_log(simulation_log, humans, zombies)
 
-        if t >= 30 or len(humans) < 1 or len(zombies) < 1:
+        if t >= 70 or len(humans) < 1 or len(zombies) < 1:
             end_sim = 1
             show_simulation(map_2d, humans, zombies, True, t)
         t += 1

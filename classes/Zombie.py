@@ -28,26 +28,22 @@ class Zombie:
         n = self.nose
 
         # 2. Save information about humans distribution and smell
-        x_h = []
-        y_h = []
-        smell = []
+        x_h = np.array([])
+        y_h = np.array([])
+        smell = np.array([])
         for human in humans:
-            x_h.append(human.x)
-            y_h.append(human.y)
-            smell.append(human.smell)
-
-        xh_vec = np.array(x_h)
-        yh_vec = np.array(y_h)
-        s_vec = np.array(smell)
+            x_h = np.append(x_h, human.x)
+            y_h = np.append(y_h, human.y)
+            smell = np.append(smell, human.smell)
 
         # 3. Calculate velocity coordinates
-        gamma_x = -(n+1) * sum(s_vec*(x-xh_vec) /
-                               ((x-xh_vec)**2+(y-yh_vec)**2)**((n+3)/2))
+        gamma_x = -n*sum(smell*(x-x_h)
+                         / ((x-x_h)**2+(y-y_h)**2)**((n+2)/2))
+        gamma_y = -n*sum(smell * (y-y_h)
+                         / ((x-x_h)**2 + (y-y_h)**2)**((n+2)/2))
 
-        gamma_y = -(n + 1) * sum(s_vec * (y - yh_vec) /
-                                 ((x-xh_vec)**2+(y-yh_vec)**2)**((n+3)/2))
-
-        gamma_module = np.sqrt(gamma_x**2 + gamma_y**2)
+        module = np.linalg.norm
+        gamma_module = module(np.array([gamma_x, gamma_y]))
         gamma_hat_x = gamma_x / gamma_module
         gamma_hat_y = gamma_y / gamma_module
 
@@ -84,9 +80,19 @@ class Zombie:
                 y_new_ccw = y + vy_new_ccw
 
                 # check which direction is better (lower pseudograv. potential)
-                cw_potential = 1
-                ccw_potential = 2
-                if cw_potential < ccw_potential:
+                def multimodule(arr1, arr2):
+                    result = []
+                    for a1, a2 in zip(arr1, arr2):
+                        result.append(module([a1, a2]))
+                    return np.array(result)
+
+                cw_potential \
+                    = sum(smell/(multimodule(x_new_cw-x_h,
+                                             y_new_cw-y_h))**n)
+                ccw_potential \
+                    = sum(smell/(multimodule(x_new_ccw-x_h,
+                                             y_new_ccw-y_h))**n)
+                if cw_potential > ccw_potential:
                     if map_2d[int(round(y_new_cw)),
                               int(round(x_new_cw))] == 1:
                         new_x = x_new_cw

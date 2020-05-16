@@ -14,7 +14,7 @@ def show_simulation(map_2d, humans, zombies, if_block, t):
         for x in range(-radius, radius+1):
             for y in range(-radius, radius+1):
                 if round(np.sqrt(x**2 + y**2)) <= h.r:
-                    showmap[round(h.y+y), round(h.x+x)] = h.color
+                    showmap[int(round(h.y+y)), int(round(h.x+x))] = h.color
 
     for z in zombies:
         radius = round(z.r)
