@@ -11,7 +11,8 @@ def move(humans, zombies, map_2d):
     new_zombie_positions = []
 
     for human in humans:
-        choose_new_position = human.choose_new_position(humans, zombies)
+        choose_new_position \
+            = human.choose_new_position(humans, zombies, map_2d)
 
         new_human_positions.append(choose_new_position[:2])
         new_human_stamina.append(choose_new_position[2])
