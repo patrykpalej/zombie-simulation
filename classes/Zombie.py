@@ -41,13 +41,13 @@ class Zombie:
         s_vec = np.array(smell)
 
         # 3. Calculate velocity coordinates
-        gamma_x = -(n+1) * sum(s_vec*(x-xh_vec) /
-                               ((x-xh_vec)**2+(y-yh_vec)**2)**((n+3)/2))
+        gamma_x = -n*sum(s_vec*(x-xh_vec)
+                         / ((x-xh_vec)**2+(y-yh_vec)**2)**((n+2)/2))
+        gamma_y = -n*sum(s_vec * (y-yh_vec)
+                         / ((x-xh_vec)**2 + (y-yh_vec)**2)**((n+2)/2))
 
-        gamma_y = -(n + 1) * sum(s_vec * (y - yh_vec) /
-                                 ((x-xh_vec)**2+(y-yh_vec)**2)**((n+3)/2))
-
-        gamma_module = np.sqrt(gamma_x**2 + gamma_y**2)
+        module = np.linalg.norm
+        gamma_module = module(np.array([gamma_x, gamma_y]))
         gamma_hat_x = gamma_x / gamma_module
         gamma_hat_y = gamma_y / gamma_module
 
@@ -84,9 +84,19 @@ class Zombie:
                 y_new_ccw = y + vy_new_ccw
 
                 # check which direction is better (lower pseudograv. potential)
-                cw_potential = 1
-                ccw_potential = 2
-                if cw_potential < ccw_potential:
+                def multimodule(arr1, arr2):
+                    result = []
+                    for a1, a2 in zip(arr1, arr2):
+                        result.append(module([a1, a2]))
+                    return np.array(result)
+
+                cw_potential \
+                    = sum(s_vec/(multimodule(x_new_cw-xh_vec,
+                                             y_new_cw-yh_vec))**n)
+                ccw_potential \
+                    = sum(s_vec/(multimodule(x_new_ccw-xh_vec,
+                                             y_new_ccw-yh_vec))**n)
+                if cw_potential > ccw_potential:
                     if map_2d[int(round(y_new_cw)),
                               int(round(x_new_cw))] == 1:
                         new_x = x_new_cw
