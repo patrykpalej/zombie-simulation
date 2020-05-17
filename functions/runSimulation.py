@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+from datetime import datetime
 import matplotlib.pyplot as plt
 
 from functions.simulation_funcs.move import move
@@ -12,7 +13,7 @@ from functions.simulation_funcs.showStats import show_humans_stats, \
     show_zombies_stats
 
 
-def run_simulation(humans, zombies, map_2d):
+def run_simulation(humans, zombies, map_2d, time_tracker):
     """
     Performs the simulation. Takes lists of humans and zombies objects and a
     map. Returns a log which contains information about the simulation run.
@@ -38,12 +39,14 @@ def run_simulation(humans, zombies, map_2d):
     human_titles = plots_config["human_titles"]
     zombie_attribs = plots_config["zombie_attribs"]
     zombie_titles = plots_config["zombie_titles"]
-    # map_dims = map_2d.shape
+
+    time_tracker["after_config"] = datetime.now()
 
     # 2. Simulation
     t = 1
     end_sim = 0
-    simulation_log = pd.DataFrame()  # for now it's a df
+    simulation_log = pd.DataFrame()
+    time_tracker["iterations"] = []
     while not end_sim:
         prepare(humans, zombies)
         move(humans, zombies, map_2d)
@@ -57,11 +60,15 @@ def run_simulation(humans, zombies, map_2d):
                            zombie_attribs, zombie_titles, zombie_ylims)
 
         simulation_log = update_log(simulation_log, humans, zombies)
+        time_tracker["iterations"].append(datetime.now())
 
-        if t >= 70 or len(humans) < 1 or len(zombies) < 1:
+        if t >= 10 or len(humans) < 1 or len(zombies) < 1:
+            time_tracker["stop_decision"] = datetime.now()
             end_sim = 1
             show_simulation(map_2d, humans, zombies, True, t)
-        t += 1
-        plt.pause(0.02)
+            plt.close('all')
 
-    return simulation_log
+        t += 1
+        plt.pause(0.01)
+
+    return simulation_log, time_tracker
