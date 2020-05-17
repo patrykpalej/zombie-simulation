@@ -15,6 +15,7 @@ class Human:
         self.a = 0
         self.a1 = 0
         self.a2 = 0
+        self.w_proportion = 0
         self.true_velo = 0
         self.n_killed = 0
 
@@ -92,13 +93,14 @@ class Human:
         self.a1 = a1
         self.a2 = a2
         self.a = a
+        self.w_proportion = betha
         self.true_velo = v*a
 
         # 5. Calculate velocity coordinates
         v_vec = v * a * w/module(w)
 
         # 6. Recalculate output coefficients - new coordinates and new stamina
-        new_stamina = stam - p3/10*(a-1)
+        new_stamina = stam - p3/50*(a-1)
 
         # 7. Implement displacement and changing direction in case the...
         # ... water is nearby

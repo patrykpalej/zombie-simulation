@@ -6,9 +6,9 @@
 
 	"color": 0.85,
 	
-	"velocity": [13, 0.5],
+	"velocity": [10, 2],
 	"r": 8,
 	
 	"nose": [2, 0.2],
-	"poison": [10, 1]
+	"poison": [10, 4]
 }

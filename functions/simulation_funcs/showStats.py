@@ -16,7 +16,7 @@ def show_humans_stats(humans, if_block, t, fig, fig_label, attribs, titles,
 
     axes = []
     for ax in range(len(attribs_dict)):
-        axes.append(fig.add_subplot(3, 2, ax+1))
+        axes.append(fig.add_subplot(3, 3, ax+1))
         axes[-1].scatter(range(len(humans)), attribs_dict[attribs[ax]])
         axes[-1].set_title(titles[ax])
         plt.tick_params(axis='x', which='both', bottom=False, top=False,

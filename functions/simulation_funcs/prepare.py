@@ -4,7 +4,7 @@ def prepare(humans, zombies):
     """
 
     for h in humans:
-        h.battle_points = h.strength * (1 + h.n_killed / 10) * (h.stamina / 5)
+        h.battle_points = h.strength * (1 + h.n_killed / 10) * (h.stamina / 4)
 
     for z in zombies:
         z.battle_points = z.poison * (1 + z.n_infected / 10)
