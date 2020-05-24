@@ -8,6 +8,7 @@ class Human:
         self.y = human_params["y"]
 
         self.color = human_params["color"]
+        self.color = 0.3
         self.velocity = human_params["velocity"]
         self.r = human_params["r"]
 

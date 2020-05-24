@@ -7,6 +7,7 @@ class Zombie:
         self.y = zombies_params["y"]
 
         self.color = zombies_params["color"]
+        self.color = 0.85
         self.velocity = zombies_params["velocity"]
         self.r = zombies_params["r"]
 
