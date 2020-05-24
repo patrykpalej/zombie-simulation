@@ -42,8 +42,22 @@ def action(humans, zombies):
             victories["zombies"][z] += 1
             loosers["humans"].append(h)
 
-    # 4. Implement results of the fight - death, infection,
-    # n_killed/n_infected increase etc.
-    # first add points for all victories, later consider loosers
+    # 4. Implement results of the fight - death, infection etc.
+
+    # Increase n_killed and n_infected
+    for human, human_result in zip(humans, victories["humans"]):
+        human.n_killed += human_result
+
+    for zombie, zombie_result in zip(zombies, victories["zombies"]):
+        zombie.n_infected += zombie_result
+
+    # Remove killed zombies and turn infected humans into zombies
+    killed_zombies = loosers["zombies"].copy()
+    killed_zombies.sort()
+    killed_zombies.reverse()
+
+    for zombie_index in killed_zombies:
+        del zombies[zombie_index]
+
 
     return humans, zombies

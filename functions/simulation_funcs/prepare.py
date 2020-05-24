@@ -11,7 +11,7 @@ def prepare(humans, zombies):
 
     for h in humans:
         h.color = 0.4 - 0.2*(h.battle_points - min(bp_list)) / \
-                  (max(bp_list) - min(bp_list))
+                  (max(bp_list) - min(bp_list) + 0.01)
 
     # 2. Zombies
     bp_list = []
@@ -21,6 +21,6 @@ def prepare(humans, zombies):
 
     for z in zombies:
         z.color = 0.95 - 0.13 * (z.battle_points - min(bp_list)) / \
-                  (max(bp_list) - min(bp_list))
+                  (max(bp_list) - min(bp_list) + 0.01)
 
     return humans, zombies
