@@ -1,5 +1,7 @@
 import numpy as np
 
+from classes.Zombie import Zombie
+
 
 def action(humans, zombies):
     """
@@ -16,8 +18,8 @@ def action(humans, zombies):
                 clash_pairs.append((h, z))
 
     # 2. Calculate how many rivals has each character
-    rivals_number = {"humans": [0 for i in humans],
-                     "zombies": [0 for i in zombies]}
+    rivals_number = {"humans": [0 for _ in humans],
+                     "zombies": [0 for _ in zombies]}
 
     for pair in clash_pairs:
         rivals_number["humans"][pair[0]] += 1
@@ -25,8 +27,8 @@ def action(humans, zombies):
 
     # 3. Carry out all clashes considering number of rivals and remember the
     # results
-    victories = {"humans": [0 for i in humans],
-                 "zombies": [0 for i in zombies]}
+    victories = {"humans": [0 for _ in humans],
+                 "zombies": [0 for _ in zombies]}
     loosers = {"humans": [], "zombies": []}
     for pair in clash_pairs:
         h = pair[0]
@@ -42,8 +44,37 @@ def action(humans, zombies):
             victories["zombies"][z] += 1
             loosers["humans"].append(h)
 
-    # 4. Implement results of the fight - death, infection,
-    # n_killed/n_infected increase etc.
-    # first add points for all victories, later consider loosers
+    # 4. Implement results of the fight - death, infection etc.
+
+    # Increase n_killed and n_infected
+    for human, human_result in zip(humans, victories["humans"]):
+        human.n_killed += human_result
+
+    for zombie, zombie_result in zip(zombies, victories["zombies"]):
+        zombie.n_infected += zombie_result
+
+    # Remove killed zombies and turn infected humans into zombies
+    killed_zombies = loosers["zombies"].copy()
+    killed_zombies = list(set(killed_zombies))
+    killed_zombies.sort()
+    killed_zombies.reverse()
+
+    for zombie_index in killed_zombies:
+        del zombies[zombie_index]
+
+    # ---
+    infected_humans = loosers["humans"]
+    infected_humans = list(set(infected_humans))
+    infected_humans.sort()
+    infected_humans.reverse()
+
+    for human_index in infected_humans:
+        h = humans[human_index]
+        zombie_params = {"x": h.x, "y": h.y, "color": 0.85,
+                         "velocity": h.velocity, "r": h.r,
+                         "nose": h.eye, "poison": h.strength}
+
+        del humans[human_index]
+        zombies.append(Zombie(zombie_params))
 
     return humans, zombies
