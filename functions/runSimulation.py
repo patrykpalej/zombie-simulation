@@ -62,8 +62,9 @@ def run_simulation(humans, zombies, map_2d, time_tracker):
         simulation_log = update_log(simulation_log, humans, zombies)
         time_tracker["iterations"].append(datetime.now())
 
-        if t >= 10 or len(humans) < 1 or len(zombies) < 1:
+        if t >= 100 or len(humans) < 1 or len(zombies) < 1:
             time_tracker["stop_decision"] = datetime.now()
+            print("finish")
             end_sim = 1
             show_simulation(map_2d, humans, zombies, True, t)
             plt.close('all')
