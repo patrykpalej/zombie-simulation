@@ -23,7 +23,6 @@ def init_characters():
 
         human_params["x"] = humans_dict["x"][h]
         human_params["y"] = humans_dict["y"][h]
-        human_params["color"] = humans_dict["color"][h]
         human_params["velocity"] = humans_dict["velocity"][h]
         human_params["r"] = humans_dict["r"][h]
         human_params["smell"] = humans_dict["smell"][h]
@@ -40,7 +39,6 @@ def init_characters():
 
         zombie_params["x"] = zombies_dict["x"][z]
         zombie_params["y"] = zombies_dict["y"][z]
-        zombie_params["color"] = zombies_dict["color"][z]
         zombie_params["velocity"] = zombies_dict["velocity"][z]
         zombie_params["r"] = zombies_dict["r"][z]
         zombie_params["nose"] = zombies_dict["nose"][z]

@@ -7,7 +7,6 @@ class Human:
         self.x = human_params["x"]
         self.y = human_params["y"]
 
-        self.color = human_params["color"]
         self.color = 0.3
         self.velocity = human_params["velocity"]
         self.r = human_params["r"]
@@ -98,7 +97,7 @@ class Human:
         self.true_velo = v*a
 
         # 5. Calculate velocity coordinates
-        v_vec = v * a * w/module(w)
+        v_vec = self.true_velo * w/module(w)
 
         # 6. Recalculate output coefficients - new coordinates and new stamina
         new_stamina = stam - p3/50*(a-1)
@@ -156,5 +155,7 @@ class Human:
                         new_x = x_new_ccw
                         new_y = y_new_ccw
                         break
+
+        print(w1, w2)
 
         return [new_x, new_y, new_stamina]
