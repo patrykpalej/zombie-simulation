@@ -3,7 +3,7 @@ import numpy as np
 from classes.Zombie import Zombie
 
 
-def action(humans, zombies):
+def action(humans, zombies, t, total_n_killed, total_n_inf):
     """
     For each character performs an action such as a battle with an opponent.
     Returns the state of characters after all fights.
@@ -30,6 +30,8 @@ def action(humans, zombies):
     victories = {"humans": [0 for _ in humans],
                  "zombies": [0 for _ in zombies]}
     loosers = {"humans": [], "zombies": []}
+    single_iter_human_victories = 0
+    single_iter_zombie_victories = 0
     for pair in clash_pairs:
         h = pair[0]
         z = pair[1]
@@ -40,9 +42,16 @@ def action(humans, zombies):
         if result == 1:
             victories["humans"][h] += 1
             loosers["zombies"].append(z)
+            print("human winner in {} iteration".format(t))
+            single_iter_human_victories += 1
         else:
             victories["zombies"][z] += 1
             loosers["humans"].append(h)
+            print("zombie winner in {} iteration".format(t))
+            single_iter_zombie_victories += 1
+
+    total_n_killed += single_iter_human_victories
+    total_n_inf += single_iter_zombie_victories
 
     # 4. Implement results of the fight - death, infection etc.
 
@@ -77,4 +86,4 @@ def action(humans, zombies):
         del humans[human_index]
         zombies.append(Zombie(zombie_params))
 
-    return humans, zombies
+    return total_n_killed, total_n_inf
