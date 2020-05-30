@@ -156,6 +156,6 @@ class Human:
                         new_y = y_new_ccw
                         break
 
-        print(w1, w2)
+        # print(w1, w2)
 
         return [new_x, new_y, new_stamina]
