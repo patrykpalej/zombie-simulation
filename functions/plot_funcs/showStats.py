@@ -10,6 +10,8 @@ def show_humans_stats(humans, if_block, t, fig, fig_label, attribs, titles,
     plt.figure(fig_label)
     plt.clf()
 
+    humans = sorted(humans, key=lambda h: h.x)
+
     attribs_dict = dict((att, []) for att in attribs)
     [attribs_dict[attr].append(getattr(h, attr))
      for h in humans for attr in attribs]
@@ -39,6 +41,8 @@ def show_zombies_stats(zombies, if_block, t, fig, fig_label, attribs, titles,
 
     plt.figure(fig_label)
     plt.clf()
+
+    zombies = sorted(zombies, key=lambda z: z.x)
 
     attribs_dict = dict((att, []) for att in attribs)
     [attribs_dict[attr].append(getattr(z, attr))
