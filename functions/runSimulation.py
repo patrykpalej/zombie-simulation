@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 from functions.simulation_funcs.move import move
 from functions.simulation_funcs.action import action
 from functions.simulation_funcs.prepare import prepare
-from functions.simulation_funcs.getYlims import get_ylims
+from functions.plot_funcs.getYlims import get_ylims
 from functions.simulation_funcs.updateLog import update_log
-from functions.simulation_funcs.visualizeLog import visualize_log
-from functions.simulation_funcs.showSimulation import show_simulation
-from functions.simulation_funcs.showStats import show_humans_stats, \
+from functions.plot_funcs.visualizeLog import visualize_log
+from functions.plot_funcs.showSimulation import show_simulation
+from functions.plot_funcs.showStats import show_humans_stats, \
     show_zombies_stats
 
 
