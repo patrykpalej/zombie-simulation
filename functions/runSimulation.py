@@ -60,12 +60,12 @@ def run_simulation(humans, zombies, map_2d, time_tracker):
         total_n_killed, total_n_infected \
             = action(humans, zombies, t, total_n_killed, total_n_infected)
 
-        # human_ylims, zombie_ylims = get_ylims(humans, zombies)
-        # show_simulation(map_2d, humans, zombies, False, t)
-        # show_humans_stats(humans, False, t, figures[1], labels[1],
-        #                   human_attribs, human_titles, human_ylims)
-        # show_zombies_stats(zombies, False, t, figures[2], labels[2],
-        #                    zombie_attribs, zombie_titles, zombie_ylims)
+        human_ylims, zombie_ylims = get_ylims(humans, zombies)
+        show_simulation(map_2d, humans, zombies, False, t)
+        show_humans_stats(humans, False, t, figures[1], labels[1],
+                          human_attribs, human_titles, human_ylims)
+        show_zombies_stats(zombies, False, t, figures[2], labels[2],
+                           zombie_attribs, zombie_titles, zombie_ylims)
 
         simulation_log = update_log(simulation_log, humans, zombies,
                                     total_n_killed, total_n_infected)
