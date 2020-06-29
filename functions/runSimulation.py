@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 from functions.simulation_funcs.move import move
 from functions.simulation_funcs.action import action
 from functions.simulation_funcs.prepare import prepare
-from functions.simulation_funcs.getYlims import get_ylims
+from functions.plot_funcs.getYlims import get_ylims
 from functions.simulation_funcs.updateLog import update_log
-from functions.simulation_funcs.visualizeLog import visualize_log
-from functions.simulation_funcs.showSimulation import show_simulation
-from functions.simulation_funcs.showStats import show_humans_stats, \
+from functions.plot_funcs.visualizeLog import visualize_log
+from functions.plot_funcs.showSimulation import show_simulation
+from functions.plot_funcs.showStats import show_humans_stats, \
     show_zombies_stats
 
 
@@ -60,18 +60,18 @@ def run_simulation(humans, zombies, map_2d, time_tracker):
         total_n_killed, total_n_infected \
             = action(humans, zombies, t, total_n_killed, total_n_infected)
 
-        # human_ylims, zombie_ylims = get_ylims(humans, zombies)
-        # show_simulation(map_2d, humans, zombies, False, t)
-        # show_humans_stats(humans, False, t, figures[1], labels[1],
-        #                   human_attribs, human_titles, human_ylims)
-        # show_zombies_stats(zombies, False, t, figures[2], labels[2],
-        #                    zombie_attribs, zombie_titles, zombie_ylims)
+        human_ylims, zombie_ylims = get_ylims(humans, zombies)
+        show_simulation(map_2d, humans, zombies, False, t)
+        show_humans_stats(humans, False, t, figures[1], labels[1],
+                          human_attribs, human_titles, human_ylims)
+        show_zombies_stats(zombies, False, t, figures[2], labels[2],
+                           zombie_attribs, zombie_titles, zombie_ylims)
 
         simulation_log = update_log(simulation_log, humans, zombies,
                                     total_n_killed, total_n_infected)
         time_tracker["iterations"].append(datetime.now())
 
-        if t >= 100 or len(humans) < 1 or len(zombies) < 1:
+        if t >= 1000 or len(humans) < 1 or len(zombies) < 1:
             simulation_log.to_csv("results/output.csv", sep=',', index=None)
             visualize_log(simulation_log)
 
