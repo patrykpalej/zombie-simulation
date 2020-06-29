@@ -7,7 +7,7 @@ def prepare(humans, zombies):
     bp_list = []
     for h in humans:
         h.battle_points \
-            = h.strength * (1 + h.n_killed / 10) * (h.stamina / 4)
+            = h.strength * (1 + h.n_killed / 10)  # * (h.stamina / 4)
         bp_list.append(h.battle_points)
 
     for h in humans:
