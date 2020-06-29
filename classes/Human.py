@@ -100,7 +100,7 @@ class Human:
         v_vec = self.true_velo * w/module(w)
 
         # 6. Recalculate output coefficients - new coordinates and new stamina
-        new_stamina = stam - p3/50*(a-1)
+        new_stamina = stam - p3/100*(a-1)
 
         # 7. Implement displacement and changing direction in case the...
         # ... water is nearby
