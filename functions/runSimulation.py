@@ -71,7 +71,7 @@ def run_simulation(humans, zombies, map_2d, time_tracker):
                                     total_n_killed, total_n_infected)
         time_tracker["iterations"].append(datetime.now())
 
-        if t >= 100 or len(humans) < 1 or len(zombies) < 1:
+        if t >= 1000 or len(humans) < 1 or len(zombies) < 1:
             simulation_log.to_csv("results/output.csv", sep=',', index=None)
             visualize_log(simulation_log)
 
