@@ -3,6 +3,6 @@
  "Zombies statistics": [3360, 80, 475, 910],
 
  "human_attribs": ["a", "stamina", "battle_points", "a1", "w_proportion", "true_velo", "a2", "smell", "eye"],
- "human_titles": ["Acceleration coefficient", "Stamina", "Battle Points", "Acc. coeff. 1", "Betha coefficient", "True velocity", "Acc. coeff. 2", "Smell", "Eye"],
+ "human_titles": ["Acceleration coefficient", "Stamina", "Battle Points", "Speed up coeff. [0, 1]", "Betha coefficient", "True velocity", "Slow down coeff. [0, 1]", "Smell", "Eye"],
  "zombie_attribs": ["battle_points", "velocity", "nose"],
  "zombie_titles": ["Battle Points", "Velocity", "Nose"]}
